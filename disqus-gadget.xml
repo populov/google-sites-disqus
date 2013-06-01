@@ -19,15 +19,40 @@
             author_quote="Simple. Fucking Good."
             author_email="serge@populov.com">
     </ModulePrefs>
+
+    <UserPref 
+        name="disqus_site_param" 
+        datatype="string"
+        display_name="Disqus Shortname (required)" 
+        default_value="Must Edit: Your Site Shortname"
+        required="true"/>
+    <UserPref
+        name="disqus_url_param"
+        datatype="string"
+        display_name="Page URL (Strongly recommended)"
+        default_value="Url of page to discuss"/>  
+    <UserPref
+        name="disqus_id_param"
+        datatype="string"
+        display_name="Disqus ID (Strongly recommended)"
+        default_value="ID of discussion"/>  
+    <UserPref
+        name="disqus_ttl_param"
+        datatype="string"
+        display_name="Page Title (Recommended)"
+        default_value=""/>  
+
     <Content type="html" >
         <![CDATA[
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'haunted-soft'; // required: replace example with your forum shortname
-        var disqus_identifier = 'office.buzz-en';
-        var disqus_url = 'http://soft.populov.com/soft/office-buzz';
+
+        var disqus_shortname = prefs.getString("disqus_site_param");
+        var disqus_url = prefs.getString("disqus_url_param");
+        var disqus_identifier = prefs.getString("disqus_id_param");
+        var disqus_title = prefs.getString("disqus_ttl_param");
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
 	/* == BUT I DID TO FIX PROBLEMS == */
