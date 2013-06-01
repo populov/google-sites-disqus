@@ -2,6 +2,7 @@
 <Module>
     <ModulePrefs
             title="Disqus for Google Sites"
+            title_url="https://code.google.com/p/google-sites-disqus/"
             description="Disqus for Google Sites"
             height="2000"
             directory_title="Disqus for Google Sites"
@@ -29,12 +30,12 @@
         var disqus_url = 'http://soft.populov.com/soft/office-buzz';
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
-	/* == BUT IT DIT EDIT == */
+	/* == BUT I DID TO FIX PROBLEMS == */
         (function() {
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
             dsq.async = true;
-            dsq.src = 'https://go.disqus.com/embed.js';
+            dsq.src = '//go.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
