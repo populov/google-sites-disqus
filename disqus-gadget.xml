@@ -17,8 +17,6 @@
             author_link="http://www.populov.com/"
             author_quote="Simple. Fucking Good."
             author_email="serge@populov.com">
-        <Require feature="views"/>
-        <Require feature="opensocial-0.9" />
     </ModulePrefs>
     <Content type="html" >
         <![CDATA[
@@ -37,7 +35,6 @@
             dsq.type = 'text/javascript';
             dsq.async = true;
             dsq.src = 'https://go.disqus.com/embed.js';
-		alert(dsq.src);
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
