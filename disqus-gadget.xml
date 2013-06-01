@@ -6,8 +6,8 @@
             height="2000"
             directory_title="Disqus for Google Sites"
             author="Serge Populov"
-            thumbnail="http://gadgets-widgets.googlecode.com/svn/trunk/disqus/disqus-tn.jpg"
-            screenshot="http://gadgets-widgets.googlecode.com/svn/trunk/disqus/disqus.jpg"
+            thumbnail="https://google-sites-disqus.googlecode.com/git/gsd-logo.png"
+            screenshot="https://google-sites-disqus.googlecode.com/git/screen.png"
             author_location="Russia"
             author_affiliation="Haunted"
             scaling="false"
@@ -18,7 +18,8 @@
             author_quote="Simple. Fucking Good."
             author_email="serge@populov.com">
         <Require feature="views"/>
-        <Require feature="opensocial-0.8" />
+        <Require feature="opensocial-0.9" />
+        <Preload href="http://go.disqus.com/embed.js" />
     </ModulePrefs>
     <Content type="html" >
         <![CDATA[
@@ -33,7 +34,7 @@
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            dsq.src = 'http://go.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
