@@ -17,8 +17,7 @@
             author_photo="https://lh6.googleusercontent.com/-wKs9AOgR3RM/UTyWQUUssgI/AAAAAAABzlg/PCgVk_DOTjU/w972-h977-no/_MG_2159.JPG"
             author_aboutme="Software Developer"
             author_link="http://www.populov.com/"
-            author_quote="Simple. Fucking Good."
-            author_email="serge@populov.com">
+            author_quote="Simple. Fucking Good.">
     </ModulePrefs>
 
     <UserPref 
@@ -63,7 +62,7 @@
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
             dsq.async = true;
-            dsq.src = '//go.disqus.com/embed.js';
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
