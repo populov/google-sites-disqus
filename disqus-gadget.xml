@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
+    <!-- based on gadget by SAN Gear http://gadgets-widgets.googlecode.com/svn/trunk/disqus/ -->
     <ModulePrefs
             title="Disqus for Google Sites"
             title_url="https://code.google.com/p/google-sites-disqus/"
-            description="Disqus for Google Sites"
+            description="Add comments provided by Disqus service to your Google Site"
             height="2000"
             directory_title="Disqus for Google Sites"
             author="Serge Populov"
             thumbnail="https://google-sites-disqus.googlecode.com/git/gsd-logo.png"
             screenshot="https://google-sites-disqus.googlecode.com/git/screen.png"
             author_location="Russia"
-            author_affiliation="Haunted"
+            author_affiliation="Haunted Soft"
             scaling="false"
             scrolling="true"
             author_photo="https://lh6.googleusercontent.com/-wKs9AOgR3RM/UTyWQUUssgI/AAAAAAABzlg/PCgVk_DOTjU/w972-h977-no/_MG_2159.JPG"
@@ -23,8 +24,8 @@
     <UserPref 
         name="disqus_site_param" 
         datatype="string"
-        display_name="Disqus Shortname (required)" 
-        default_value="Must Edit: Your Site Shortname"
+        display_name="Disqus Shortname" 
+        default_value="Your site shortname (get at Disqus)"
         required="true"/>
     <UserPref
         name="disqus_url_param"
@@ -47,6 +48,8 @@
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
+        var prefs = new gadgets.Prefs();
+
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 
         var disqus_shortname = prefs.getString("disqus_site_param");
@@ -55,7 +58,7 @@
         var disqus_title = prefs.getString("disqus_ttl_param");
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
-	/* == BUT I DID TO FIX PROBLEMS == */
+	/* --- But I did to fix problems --- */
         (function() {
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
