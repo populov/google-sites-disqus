@@ -5,19 +5,20 @@
             title="Disqus for Google Sites"
             title_url="https://code.google.com/p/google-sites-disqus/"
             description="Add comments provided by Disqus service to your Google Site"
-            height="2000"
             directory_title="Disqus for Google Sites"
-            author="Serge Populov"
             thumbnail="https://google-sites-disqus.googlecode.com/git/gsd-logo.png"
             screenshot="https://google-sites-disqus.googlecode.com/git/screen.png"
-            author_location="Russia"
-            author_affiliation="Haunted Soft"
-            scaling="false"
-            scrolling="true"
-            author_photo="https://lh6.googleusercontent.com/-wKs9AOgR3RM/UTyWQUUssgI/AAAAAAABzlg/PCgVk_DOTjU/w972-h977-no/_MG_2159.JPG"
+            author="Serge Populov"
             author_aboutme="Software Developer"
             author_link="http://www.populov.com/"
-            author_quote="Simple. Fucking Good.">
+            author_quote="Simple. Fucking Good."
+            author_photo="https://lh6.googleusercontent.com/-wKs9AOgR3RM/UTyWQUUssgI/AAAAAAABzlg/PCgVk_DOTjU/w972-h977-no/_MG_2159.JPG"
+            author_location="Russia"
+            author_affiliation="Haunted Soft"
+            height="2000"
+            scaling="false"
+            scrolling="true"
+            >
     </ModulePrefs>
 
     <UserPref 
@@ -57,7 +58,7 @@
         var disqus_title = prefs.getString("disqus_ttl_param");
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
-	/* --- But I did to fix problems --- */
+	/* --- But I did to fix errors --- */
         (function() {
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
