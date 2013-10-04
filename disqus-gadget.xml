@@ -10,7 +10,7 @@
             screenshot="https://google-sites-disqus.googlecode.com/git/screen.png"
             author="Serge Populov"
             author_aboutme="Software Developer"
-            author_link="http://www.populov.com/"
+            author_link="http://serge.populov.com/"
             author_quote="Simple. Fucking Good."
             author_photo="https://lh6.googleusercontent.com/-wKs9AOgR3RM/UTyWQUUssgI/AAAAAAABzlg/PCgVk_DOTjU/w972-h977-no/_MG_2159.JPG"
             author_location="Russia"
@@ -20,28 +20,34 @@
             scrolling="true"
             >
     </ModulePrefs>
+    <Require feature="dynamic-height"/>
 
-    <UserPref 
-        name="disqus_site_param" 
-        datatype="string"
-        display_name="Disqus Shortname" 
-        default_value="Your site shortname (get at Disqus)"
-        required="true"/>
     <UserPref
-        name="disqus_url_param"
-        datatype="string"
-        display_name="Page URL (Strongly recommended)"
-        default_value="Url of page to discuss"/>  
+            name="disqus_site_param"
+            datatype="string"
+            display_name="Disqus Shortname"
+            default_value="Your site shortname (get at Disqus)"
+            required="true"/>
     <UserPref
-        name="disqus_id_param"
-        datatype="string"
-        display_name="Disqus ID (Strongly recommended)"
-        default_value="ID of discussion"/>  
+            name="disqus_url_param"
+            datatype="string"
+            display_name="Page URL - used only on thread creation (Strongly recommended)"
+            default_value=""/>
     <UserPref
-        name="disqus_ttl_param"
-        datatype="string"
-        display_name="Page Title (Recommended)"
-        default_value=""/>  
+            name="disqus_id_param"
+            datatype="string"
+            display_name="Disqus ID - Unique string, identifying discussion thread (Strongly recommended)"
+            default_value=""/>
+    <UserPref
+            name="disqus_category_id_param"
+            datatype="string"
+            display_name="Category ID - used only on thread creation (optional)"
+            default_value=""/>
+    <UserPref
+            name="disqus_ttl_param"
+            datatype="string"
+            display_name="Page Title - used only on thread creation (Recommended)"
+            default_value=""/>
 
     <Content type="html" >
         <![CDATA[
@@ -55,6 +61,7 @@
         var disqus_shortname = prefs.getString("disqus_site_param");
         var disqus_url = prefs.getString("disqus_url_param");
         var disqus_identifier = prefs.getString("disqus_id_param");
+        var disqus_category_id = prefs.getString("disqus_category_id_param");
         var disqus_title = prefs.getString("disqus_ttl_param");
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
