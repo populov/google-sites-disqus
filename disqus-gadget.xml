@@ -36,7 +36,7 @@
     <UserPref
             name="disqus_id_param"
             datatype="string"
-            display_name="Disqus ID - Unique string, identifying discussion thread (Strongly recommended)"
+            display_name="Disqus ID - unique string, identifying discussion thread, invent yourself (Strongly recommended)"
             default_value=""/>
     <UserPref
             name="disqus_category_id_param"
