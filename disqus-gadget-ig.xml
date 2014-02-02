@@ -15,10 +15,11 @@
             author_photo="https://sites.google.com/a/populov.com/serge/home/photo.jpg"
             author_location="Russia"
             author_affiliation="Haunted Soft"
-            height="2000"
+            height="300"
             scaling="false"
             scrolling="true"
             >
+        <Require feature="dynamic-height"/>
     </ModulePrefs>
 
     <UserPref
@@ -53,6 +54,15 @@
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
+        function adjustHeight() {
+            if (gadgets.window)
+                gadgets.window.adjustHeight();
+        }
+        function disqus_config() {
+            this.callbacks.onReady = [ adjustHeight ];
+            this.callbacks.onNewComment = [ adjustHeight ];
+        }
+        gadgets.util.registerOnLoadHandler(adjustHeight);
         var prefs = new _IG_Prefs();
 
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
