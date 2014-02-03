@@ -15,7 +15,7 @@
             author_photo="https://sites.google.com/a/populov.com/serge/home/photo.jpg"
             author_location="Russia"
             author_affiliation="Haunted Soft"
-            height="300"
+            height="70"
             scaling="false"
             scrolling="true"
             >
@@ -48,24 +48,19 @@
             datatype="string"
             display_name="Page Title - used only on thread creation (Recommended)"
             default_value=""/>
+    <UserPref
+            name="only_show_on_main_url"
+            datatype="bool"
+            display_name="Only show on main page URL (see above)"
+            default_value="false"/>
 
     <Content type="html" >
         <![CDATA[
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        function adjustHeight() {
-            if (gadgets.window)
-                gadgets.window.adjustHeight();
-        }
-        function disqus_config() {
-            this.callbacks.onReady = [ adjustHeight ];
-            this.callbacks.onNewComment = [ adjustHeight ];
-        }
-        gadgets.util.registerOnLoadHandler(adjustHeight);
-        var prefs = new gadgets.Prefs();
 
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var prefs = new gadgets.Prefs();
 
         var disqus_shortname = prefs.getString("disqus_site_param");
         var disqus_url = prefs.getString("disqus_url_param");
@@ -73,18 +68,59 @@
         var disqus_category_id = prefs.getString("disqus_category_id_param");
         var disqus_title = prefs.getString("disqus_ttl_param");
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-	/* --- But I did to fix errors --- */
-        (function() {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var disqusGadget = (function () {
+            function init() {
+                var onlyShowOnMainUrl = prefs.getBool("only_show_on_main_url");
+                var show = true;
+                if (onlyShowOnMainUrl && disqus_url) {
+                    var showOnUrl = disqus_url.toLowerCase().replace(/(http(s)?:\/\/)|([&|\/]$)/ig, "");
+                    var parent = window.location.search.match(/parent=[^&]+/);
+                    if (parent && parent.length > 0) {
+                        var url = parent[0].toLowerCase().replace(/(^parent=)|(http(s)?:\/\/)|([&|\/]$)/ig, "");
+                        if (url != showOnUrl)
+                            show = false;
+                    }
+                }
+
+                if (show) {
+                    injectDisqusScript();
+                    gadgets.util.registerOnLoadHandler(adjustHeight);
+                }
+                else {
+                    var dsqComments = document.getElementById("dsqComments");
+                    dsqComments.parentNode.removeChild(dsqComments);
+                    adjustHeight(0);
+                }
+            }
+
+            function injectDisqusScript() {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            }
+
+            function adjustHeight(height) {
+                if (gadgets.window)
+                    gadgets.window.adjustHeight(height);
+            }
+
+            return {
+                adjustHeight: adjustHeight,
+                init: init
+            }
         })();
+
+        function disqus_config() {
+            this.callbacks.onReady = [ disqusGadget.adjustHeight ];
+            this.callbacks.onNewComment = [ disqusGadget.adjustHeight ];
+        }
+
+        gadgets.util.registerOnLoadHandler(disqusGadget.init);
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <a id="dsqComments" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         ]]>
     </Content>
 </Module>

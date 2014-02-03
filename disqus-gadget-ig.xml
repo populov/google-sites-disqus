@@ -74,7 +74,6 @@
         var disqus_title = prefs.getString("disqus_ttl_param");
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
-	/* --- But I did to fix errors --- */
         (function() {
             var dsq = document.createElement('script');
             dsq.type = 'text/javascript';
